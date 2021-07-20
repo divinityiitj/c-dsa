@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+//count subarrays with xor=k;
+int solve(vector<int> &nums,int k){
+    map<int,int> freq;
+    //to store prefix xor and its count;
+    int xor =0;
+    int count=0;//ans;
+    for(int it:nums){
+        xor=xor^it;
+        if(xor==k){
+            count++;
+        }
+        if(freq.find(xor^k)!=freq.end()){
+            //xor^k is y here y is in theory
+            count+= freq[xor^k];
+        }
+        //now put in the map;
+        freq[xor]+=1;
+    }
+    return count;
+}
+int main() {
+    cout<<"Hello World!";
+}
