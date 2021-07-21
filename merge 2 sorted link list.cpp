@@ -77,6 +77,27 @@ node * mergelinklists(node *&head1, node *&head2){
     }
     return dummy1->next;
 }
+node *mergeOptimised(node*head1,node*head2){
+    if(head1==NULL) return head2;
+    if(head2==NULL) return head1;
+    //now we always start from head1 so first we check if it's greater or not then we swap it
+    if(head1->data>head2->data){
+        swap(head1->data,head2->data);
+    }
+    node *res=head1;
+    while(head1 && head2){
+        node *temp=NULL;
+        while(head1 &&head1->data<head2->data){
+        //temp is the last node where smaller value was found
+            temp=head1;
+            head1=head1->next;
+        }
+        //that part of the list was sorted now when bigger value is found in another list we change the node to second list
+        temp->next=head2;
+        swap(head1,head2);
+        
+    }
+}
 int main() {
    node * head1 = createll();
    //print(start);
