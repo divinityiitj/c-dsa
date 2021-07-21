@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+node * reverseLinkList(node*head){
+    node *newHead=NULL;
+    while(head!=NULL){
+        node *next =head->next;
+        head->next=newHead;
+        newHead=head;
+        head=next;
+    }
+    return newHead;
+}
+int main() {
+    cout<<"Hello World!";
+}
