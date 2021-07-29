@@ -19,6 +19,21 @@ void returnPermutation(vector<int> &ds,vector<int> &nums,vector<vector<int>>&ans
         }
     }
 }
+void recurPermutate(int index,vector<int>&nums, vector<vector<int>> &ans){
+    if(index==nums.size()){
+        ans.push_back(nums);
+    }
+    //here we do swapping of elements to generate all permutations
+    for(int i=index;i<n;i++){
+        swap(nums[index],nums[i]);
+        recurPermutate(index+1,nums,ans);
+        swap(nums[index],nums[i]);
+    }
+}
+vector<vector<int>> permute(vector<int> &nums){
+    vector<vector<int>> ans;
+    recurPermutate(0,nums,ans);
+}
 int main() {
     //cout<<"Hello World!";
     vector<int> ds;
