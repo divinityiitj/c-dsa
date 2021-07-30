@@ -12,7 +12,7 @@ void combinationSum(int index,int target,vector<int> &arr,vector<vector<int> &an
     if(arr[index]<=target){
         //i.e. we pick up the element
         ds.push_back(arr[index]);
-        combinationSum(index+1,target-arr[index],arr,ans,ds);
+        combinationSum(index,target-arr[index],arr,ans,ds);
     ds.pop_back();
     }
     //dont pick up the elemnt
