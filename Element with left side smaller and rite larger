@@ -1,0 +1,8 @@
+An Efficient Solution can solve this problem in O(n) time using O(n) extra space. Below is detailed solution.
+
+Create two arrays leftMax[] and rightMin[].
+Traverse input array from left to right and fill leftMax[] such that leftMax[i] contains maximum element from 0 to i-1 in input array.
+Traverse input array from right to left and fill rightMin[] such that rightMin[i] contains minimum element from to n-1 to i+1 in input array.
+Traverse input array. For every element arr[i], check if arr[i] is greater than leftMax[i] and smaller than rightMin[i]. If yes, return i.
+Useful links to help you understand the concepts of this problem:
+https://www.geeksforgeeks.org/find-the-element-before-which-all-the-elements-are-smaller-than-it-and-after-which-all-are-greater-than-it/
